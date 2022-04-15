@@ -11,9 +11,27 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        fetch()
     }
 
 
+}
+
+extension ViewController {
+    private func fetch() {
+        guard let url = URL(string: "https://weatherdbi.herokuapp.com/data/weather/london") else {return}
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error ?? "unknown description")
+                return}
+            do {
+                let weather = try JSONDecoder().decode(Weather.self, from: data)
+                print (weather)
+            } catch let error {
+                print(error)
+            }
+        }.resume()
+    }
 }
 
