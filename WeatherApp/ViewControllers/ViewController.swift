@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.rowHeight = 60
         fetchData()
+        currentWeatherLabel.textColor = .white
     }
     
     private func fetchImage(url: String) -> UIImage? {
@@ -54,9 +55,9 @@ extension ViewController: UITableViewDataSource {
         content.text = data?.day
         content.secondaryText = data?.description
         cell.contentConfiguration = content
-        DispatchQueue.main.async {
-        //content.image = self.fetchImage(url: data.iconURL)
-        }
+//        NetworkManager.shared.fetchData(url: url) { weather in
+//            content.image = self.fetchImage(url: data.iconURL)
+//        }
         return cell
     }
     
