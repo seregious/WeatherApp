@@ -44,6 +44,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         weather?.next_days.count ?? 7
     }
@@ -55,9 +56,10 @@ extension ViewController: UITableViewDataSource {
         content.text = data?.day
         content.secondaryText = data?.description
         cell.contentConfiguration = content
-//        NetworkManager.shared.fetchData(url: url) { weather in
-//            content.image = self.fetchImage(url: data.iconURL)
-//        }
+        NetworkManager.shared.fetchData(url: url) { weather in
+            content.image = self.fetchImage(url: data?.iconURL ?? "")
+            self.tableView.reloadData()
+        }
         return cell
     }
     
