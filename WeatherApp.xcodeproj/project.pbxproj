@@ -61,24 +61,21 @@
 			isa = PBXGroup;
 			children = (
 				A3EE1D00280A33EA000B301E /* Services */,
-				A3EE1CFD280A25D2000B301E /* Model */,
-				A3EE1CE9280A245C000B301E /* AppDelegate.swift */,
-				A3EE1CEB280A245C000B301E /* SceneDelegate.swift */,
-				A3EE1CED280A245C000B301E /* ViewController.swift */,
-				A3EE1CEF280A245C000B301E /* Main.storyboard */,
-				A3EE1CF2280A245D000B301E /* Assets.xcassets */,
-				A3EE1CF4280A245D000B301E /* LaunchScreen.storyboard */,
-				A3EE1CF7280A245D000B301E /* Info.plist */,
+				A3EE1CFD280A25D2000B301E /* Models */,
+				A3EE1D04280AEB5E000B301E /* App */,
+				A3EE1D06280AEB99000B301E /* ViewControllers */,
+				A3EE1D03280AEB41000B301E /* Storyboards */,
+				A3EE1D05280AEB70000B301E /* Resources */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
 		};
-		A3EE1CFD280A25D2000B301E /* Model */ = {
+		A3EE1CFD280A25D2000B301E /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A3EE1CFE280A25E7000B301E /* Weather.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A3EE1D00280A33EA000B301E /* Services */ = {
@@ -87,6 +84,41 @@
 				A3EE1D01280A3406000B301E /* NetworkManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A3EE1D03280AEB41000B301E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE1CEF280A245C000B301E /* Main.storyboard */,
+				A3EE1CF4280A245D000B301E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A3EE1D04280AEB5E000B301E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE1CE9280A245C000B301E /* AppDelegate.swift */,
+				A3EE1CEB280A245C000B301E /* SceneDelegate.swift */,
+				A3EE1CF7280A245D000B301E /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A3EE1D05280AEB70000B301E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE1CF2280A245D000B301E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A3EE1D06280AEB99000B301E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE1CED280A245C000B301E /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64V4X3L8W4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = WeatherApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -341,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64V4X3L8W4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = WeatherApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
