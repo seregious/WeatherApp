@@ -118,10 +118,10 @@ extension ViewController {
         let clouds = [cloudOne, cloudTwo, cloudThree, cloudFour]
         for cloud in clouds {
         UIView.animate(
-            withDuration: 1,
+            withDuration: 0.7,
             delay: Double.random(in: 0...0.4),
-            options: [.autoreverse, .repeat]) {
-                cloud?.frame.origin.y -= 15
+            options: [.autoreverse, .repeat, .curveEaseInOut]) {
+                cloud?.frame.origin.y -= CGFloat(Int.random(in: 10...20))
             }
         }
     }
@@ -131,7 +131,7 @@ extension ViewController {
             withDuration: 1,
             delay: 0,
             options: [.autoreverse, .repeat]) {
-                self.sunImage.transform = CGAffineTransform(rotationAngle: .pi/2)
+                self.sunImage.transform = CGAffineTransform(rotationAngle: .pi / 2)
             }
     }
     
@@ -161,4 +161,3 @@ extension ViewController {
         return gradientLayer
     }
 }
-
