@@ -22,7 +22,9 @@ class NetworkManager {
                 print(error ?? "unknown description")
                 return}
             do {
-                let weather = try JSONDecoder().decode(Weather.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let weather = try decoder.decode(Weather.self, from: data)
                 DispatchQueue.main.async {
                     completion(weather)
                 }
@@ -33,7 +35,6 @@ class NetworkManager {
     }
     
     func fetchImage(from url: String) -> Data? {
-        //guard let stringUrl = url else {return nil}
         guard let imageUrl = URL(string: url) else {return nil}
         return try? Data(contentsOf: imageUrl)
     }

@@ -10,7 +10,7 @@ import Foundation
 struct Weather: Decodable {
     let region: String
     let currentConditions: Today
-    let next_days: [NextDay]
+    let nextDays: [NextDay]
     
     var description: String {
         """
@@ -40,12 +40,12 @@ struct Today: Decodable {
 struct NextDay: Decodable {
     let day: String
     let comment: String
-    let max_temp: Temperature
-    let min_temp: Temperature
+    let maxTemp: Temperature
+    let minTemp: Temperature
     let iconURL : String
     
     var description: String {
-        "\(comment), \(min_temp.c)° - \(max_temp.c)°"
+        "\(comment), \(minTemp.c)° - \(maxTemp.c)°"
     }
 }
 

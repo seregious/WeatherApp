@@ -11,7 +11,6 @@
         <!--Weather-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -19,12 +18,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XzW-zD-I5P">
                                 <rect key="frame" x="20" y="333" width="374" height="529"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="529" id="Oly-SO-FDq"/>
                                 </constraints>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" systemColor="systemTealColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayID" id="aRM-9s-nTl">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
@@ -32,31 +30,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aRM-9s-nTl" id="ocd-lt-bPv">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" systemColor="systemTealColor"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="6HW-O8-UtW"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bzf-FV-3Cx">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bzf-FV-3Cx">
                                 <rect key="frame" x="20" y="108" width="374" height="205"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-ye-h4m" customClass="UIImageView">
-                                        <rect key="frame" x="0.0" y="0.0" width="184.5" height="140"/>
+                                        <rect key="frame" x="0.0" y="32.5" width="184.5" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="Eu2-nf-TeQ"/>
                                             <constraint firstAttribute="width" constant="140" id="LlV-JB-hDw"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="Jws-fF-ADG">
-                                        <rect key="frame" x="189.5" y="0.0" width="184.5" height="27"/>
+                                        <rect key="frame" x="189.5" y="91" width="184.5" height="23.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
-                                                    <font key="NSFont" metaFont="system" size="24"/>
+                                                    <font key="NSFont" size="20" name="PTMono-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -69,6 +65,33 @@
                                     <constraint firstItem="Jws-fF-ADG" firstAttribute="leading" secondItem="BTb-ye-h4m" secondAttribute="trailing" constant="5" id="zPr-Bm-lkv"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-Tc-oLS" userLabel="loadscreen">
+                                <rect key="frame" x="0.0" y="0.0" width="426" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iM-uL-90Y">
+                                        <rect key="frame" x="249" y="562" width="116" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2B0-TI-CqU">
+                                        <rect key="frame" x="223" y="284" width="116" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Uq-bt-sYa">
+                                        <rect key="frame" x="47" y="690" width="116" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xa6-Tj-Nsn">
+                                        <rect key="frame" x="63" y="429" width="116" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-yQ-6h4">
+                                        <rect key="frame" x="127" y="96" width="144" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -84,21 +107,27 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" largeTitleDisplayMode="always" id="jmm-R6-BBh"/>
                     <connections>
+                        <outlet property="cloudFour" destination="3Uq-bt-sYa" id="f2P-TZ-GJU"/>
+                        <outlet property="cloudOne" destination="2B0-TI-CqU" id="Sns-lb-8e1"/>
+                        <outlet property="cloudThree" destination="6iM-uL-90Y" id="y1r-QZ-1Eq"/>
+                        <outlet property="cloudTwo" destination="Xa6-Tj-Nsn" id="cGJ-XH-rgU"/>
                         <outlet property="currentWeatherImage" destination="BTb-ye-h4m" id="IBi-im-CXD"/>
                         <outlet property="currentWeatherLabel" destination="Jws-fF-ADG" id="0sP-DI-Zsq"/>
+                        <outlet property="loadscreen" destination="Os7-Tc-oLS" id="ntA-xC-ZYY"/>
+                        <outlet property="sunImage" destination="ep0-yQ-6h4" id="LgV-QB-Nb9"/>
                         <outlet property="tableView" destination="XzW-zD-I5P" id="cLD-PT-pXF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="302.89855072463769" y="153.34821428571428"/>
+            <point key="canvasLocation" x="231.8840579710145" y="89.732142857142847"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y0i-SG-uLF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OhZ-Af-Yrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lh1-QL-la4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZS4-j5-MuX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ZS4-j5-MuX">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -117,11 +146,15 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VPG-zb-8p9"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OhZ-Af-Yrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-520" y="144"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
