@@ -7,29 +7,34 @@
 
 import UIKit
 
-class nextDaysCell: UITableViewCell {
+class nextDaysCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imageWeather: UIImageView!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     
     let url = NetworkManager.shared.url
     
-    func setCell(with data: NextDay, cell: UITableViewCell) {
-        var content = cell.defaultContentConfiguration()
-        content.text = data.day
-        content.textProperties.color = .white
-        
-        content.secondaryText = data.description
-        content.secondaryTextProperties.color = .white
-        
-        cell.backgroundColor = .clear
-        cell.contentConfiguration = content
+    func setCell(with data: NextDay) {
+        dayLabel.text = data.day
+        commentLabel.text = data.description
         
         DispatchQueue.global().async {
             guard let url = URL(string: data.iconURL ) else {return}
             guard let imageData = try? Data(contentsOf: url) else {return}
-            
             DispatchQueue.main.async {
-                content.image = UIImage(data: imageData)
+                self.imageWeather.image = UIImage(data: imageData)
+                self.setShadow(for: self.imageWeather)
             }
         }
         
+    }
+    
+    private func setShadow(for imageView: UIView) {
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowRadius = 3.0
+        imageView.layer.shadowOpacity = 1.0
+        imageView.layer.shadowOffset = CGSize(width: 4, height: 4)
+        imageView.layer.masksToBounds = false
     }
 }

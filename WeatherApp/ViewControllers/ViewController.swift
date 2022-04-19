@@ -18,25 +18,24 @@ class ViewController: UIViewController {
     
     
     
+    @IBOutlet weak var todayCommentLabel: UILabel!
     @IBOutlet weak var currentWeatherImage: UIImageView!
     @IBOutlet weak var currentWeatherLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     
     private var weather: Weather?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLoadScreen()
-        cloudsAnimation()
-        sunRotation()
-        self.view.layer.insertSublayer(gradientLayer(), at:0)
         
-        tableView.rowHeight = 60
-        tableView.allowsSelection = false
+        setCloudsAndSun()
+        setLoadingScreen()
+        self.view.layer.insertSublayer(gradientLayer(), at:0)
+                
+        collectionView.allowsSelection = false
         fetchData()
         currentWeatherLabel.textColor = .white
-        tableView.reloadData()
     }
     
     private func fetchImage(url: String) -> UIImage? {
@@ -48,33 +47,31 @@ class ViewController: UIViewController {
         NetworkManager.shared.fetchData() { weather in
             self.weather = weather
             
-            self.title = weather.title
+            self.todayCommentLabel.text = weather.title
             self.currentWeatherLabel.text = weather.description
             
             self.currentWeatherImage.image = self.fetchImage(url: weather.currentConditions.iconURL)
             self.setShadow(for: self.currentWeatherImage)
             self.setOpacity()
-            self.tableView.reloadData()
+            self.collectionView.reloadData()
         }
-    }
-    
-    private func setImage(from object: NextDay) -> UIImage? {
-        guard let image = NetworkManager.shared.fetchImage(from: object.iconURL) else { return nil }
-        return UIImage(data: image)
     }
 
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+//MARK: - CollectionView
+extension ViewController: UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        weather?.nextDays.count ?? 7
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        weather?.nextDays.count ?? 8
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DayID", for: indexPath) as! nextDaysCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayID", for: indexPath) as! nextDaysCell
         guard let data = weather?.nextDays[indexPath.row] else { return cell }
-        cell.setCell(with: data, cell: cell)
+        cell.setCell(with: data)
+        
         return cell
     }
 }
@@ -82,7 +79,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 //MARK: - Loadscreen
 extension ViewController {
     
-    private func setLoadScreen() {
+    private func setCloudsAndSun() {
         self.navigationController?.isNavigationBarHidden = true
         self.loadscreen.layer.insertSublayer(gradientLayer(), at: 0)
         setColor(for: cloudOne)
@@ -106,7 +103,7 @@ extension ViewController {
         imageView.layer.masksToBounds = false
     }
 
-    func cloudsAnimation() {
+    private func cloudsAnimation() {
         let clouds = [cloudOne, cloudTwo, cloudThree, cloudFour]
         for cloud in clouds {
         UIView.animate(
@@ -118,7 +115,7 @@ extension ViewController {
         }
     }
     
-    func sunRotation() {
+    private func sunRotation() {
         UIView.animate(
             withDuration: 1,
             delay: 0,
@@ -127,7 +124,7 @@ extension ViewController {
             }
     }
     
-    func setOpacity() {
+    private func setOpacity() {
         UIView.animate(
             withDuration: 0.7,
             delay: 0) {
@@ -141,7 +138,7 @@ extension ViewController {
             }
     }
     
-    func gradientLayer() -> CAGradientLayer {
+    private func gradientLayer() -> CAGradientLayer {
         let colorTop =  UIColor.tintColor.cgColor
         let colorBottom = UIColor.systemCyan.cgColor
                     
@@ -151,5 +148,11 @@ extension ViewController {
         gradientLayer.frame = self.view.bounds
         
         return gradientLayer
+    }
+    
+    private func setLoadingScreen() {
+        setCloudsAndSun()
+        cloudsAnimation()
+        sunRotation()
     }
 }
