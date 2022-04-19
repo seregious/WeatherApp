@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		765D6F3BFFDC0A0F8B18F355 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E47F23952D759A53048077A /* Pods_WeatherApp.framework */; };
+		A32D9E75280F2CB9006F96ED /* CellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D9E74280F2CB8006F96ED /* CellClass.swift */; };
 		A3EE1CEA280A245C000B301E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE1CE9280A245C000B301E /* AppDelegate.swift */; };
 		A3EE1CEC280A245C000B301E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE1CEB280A245C000B301E /* SceneDelegate.swift */; };
 		A3EE1CEE280A245C000B301E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE1CED280A245C000B301E /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		2E47F23952D759A53048077A /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A32D9E74280F2CB8006F96ED /* CellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellClass.swift; sourceTree = "<group>"; };
 		A3EE1CE6280A245C000B301E /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EE1CE9280A245C000B301E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3EE1CEB280A245C000B301E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +62,6 @@
 				CF76CE658678F6B5CAB05F8B /* Pods-WeatherApp.debug.xcconfig */,
 				BBBDDEFADA215E162AE18097 /* Pods-WeatherApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				A3EE1CED280A245C000B301E /* ViewController.swift */,
+				A32D9E74280F2CB8006F96ED /* CellClass.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -261,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32D9E75280F2CB9006F96ED /* CellClass.swift in Sources */,
 				A3EE1CFF280A25E7000B301E /* Weather.swift in Sources */,
 				A3EE1CEE280A245C000B301E /* ViewController.swift in Sources */,
 				A3EE1D02280A3407000B301E /* NetworkManager.swift in Sources */,

@@ -14,11 +14,15 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func fetchData(url: String, with completion: @escaping(Weather) -> ()) {
+    let url = "https://weatherdbi.herokuapp.com/data/weather/london"
+
+    
+    func fetchData(with completion: @escaping(Weather) -> ()) {
         guard let url = URL(string: url) else {return}
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
+                
                 print(error ?? "unknown description")
                 return}
             do {

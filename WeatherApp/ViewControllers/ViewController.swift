@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    private let url = "https://weatherdbi.herokuapp.com/data/weather/london"
     private var weather: Weather?
 
     override func viewDidLoad() {
@@ -37,6 +36,7 @@ class ViewController: UIViewController {
         tableView.allowsSelection = false
         fetchData()
         currentWeatherLabel.textColor = .white
+        tableView.reloadData()
     }
     
     private func fetchImage(url: String) -> UIImage? {
@@ -45,15 +45,16 @@ class ViewController: UIViewController {
     }
     
     private func fetchData() {
-        NetworkManager.shared.fetchData(url: url) { weather in
+        NetworkManager.shared.fetchData() { weather in
             self.weather = weather
             
             self.title = weather.title
             self.currentWeatherLabel.text = weather.description
-            self.tableView.reloadData()
+            
             self.currentWeatherImage.image = self.fetchImage(url: weather.currentConditions.iconURL)
             self.setShadow(for: self.currentWeatherImage)
             self.setOpacity()
+            self.tableView.reloadData()
         }
     }
     
@@ -71,23 +72,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DayID", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        let data = weather?.nextDays[indexPath.row]
-        
-        content.text = data?.day
-        content.textProperties.color = .white
-        
-        content.secondaryText = data?.description
-        content.secondaryTextProperties.color = .white
-        
-        cell.backgroundColor = .clear
-        cell.contentConfiguration = content
-        //content.image = setImage(from: data?.iconURL)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DayID", for: indexPath) as! nextDaysCell
+        guard let data = weather?.nextDays[indexPath.row] else { return cell }
+        cell.setCell(with: data, cell: cell)
         return cell
     }
 }
 
+//MARK: - Loadscreen
 extension ViewController {
     
     private func setLoadScreen() {
