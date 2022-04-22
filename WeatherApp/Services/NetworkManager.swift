@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 
 
@@ -16,7 +17,39 @@ class NetworkManager {
     
     let url = "https://weatherdbi.herokuapp.com/data/weather/london"
 
+    //MARK: - Download with Alamofire
+    func fetchWithAlamofire(_ completion: @escaping (Weather) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let result = Weather.getData(from: value) else { return }
+                    completion(result)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
     
+    func fetchDataAlamofire(url: String, completion: @escaping (Data) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    completion(data)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
+    //MARK: - Download with Result
+    
+    
+    //MARK: - Default download
     func fetchData(with completion: @escaping(Weather) -> ()) {
         guard let url = URL(string: url) else {return}
         

@@ -34,9 +34,13 @@ class ViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer(), at:0)
                 
         collectionView.allowsSelection = false
-        fetchData()
+        fetchFire()
         currentWeatherLabel.textColor = .white
     }
+}
+ 
+//MARK: - Network Methods
+extension ViewController {
     
     private func fetchImage(url: String) -> UIImage? {
         guard let data = NetworkManager.shared.fetchImage(from: url) else {return nil}
@@ -47,6 +51,19 @@ class ViewController: UIViewController {
         NetworkManager.shared.fetchData() { weather in
             self.weather = weather
             
+            self.todayCommentLabel.text = weather.title
+            self.currentWeatherLabel.text = weather.description
+            
+            self.currentWeatherImage.image = self.fetchImage(url: weather.currentConditions.iconURL)
+            self.setShadow(for: self.currentWeatherImage)
+            self.setOpacity()
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func fetchFire() {
+        NetworkManager.shared.fetchWithAlamofire() { weather in
+            self.weather = weather
             self.todayCommentLabel.text = weather.title
             self.currentWeatherLabel.text = weather.description
             
