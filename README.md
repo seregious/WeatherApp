@@ -9,8 +9,7 @@ Details:
 5. Alamofire with manual JSON parsing
 
 <p float="left">
-<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-24-56.png" width="200" />
-<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-25-02.png" width="200" />
-<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-25-29.png" width="200" />
-<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_21-28-25.png" width="200" />
+<img src="https://github.com/seregious/WeatherApp/blob/main/images/ezgif-5-354bae0b98.gif" width="200" />
+<img src="https://github.com/seregious/WeatherApp/blob/main/images/2022-05-04_14-18-21.png" width="200" />
+<img src="https://github.com/seregious/WeatherApp/blob/main/images/2022-05-04_14-18-28.png" width="200" />
 </p>
